@@ -1,0 +1,6 @@
+pre-requisites
+
+1. code::blocks ide with mingw setup
+2. windows os vista above
+3. in linker settings add winmm
+4. .wav files in file of program

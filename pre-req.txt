@@ -2,5 +2,5 @@ pre-requisites
 
 1. code::blocks ide with mingw setup
 2. windows os vista above
-3. in linker settings add winmm
-4. .wav files in file of program
+3. go to settings>compiler>linker settings>link libraries and add "winmm"
+4. add some .wav files in file of program 

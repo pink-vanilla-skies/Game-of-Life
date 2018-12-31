@@ -2,5 +2,6 @@ pre-requisites
 
 1. code::blocks ide with mingw setup.
 2. windows os vista above.
-3. go to settings>compiler>linker settings>link libraries and add "winmm".
-4. add some .wav files in file of program change settings in console_music function.
+3. c++14 settings>compiler>compiler flags>general then tick "Have g++ follow the C++14 ISO C++ language standard [-std=c++14]"
+4. go to settings>compiler>linker settings>link libraries and add "winmm".
+5. add some .wav files in file of program change settings in console_music function.

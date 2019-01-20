@@ -59,7 +59,7 @@ void console_details()
 
 //setting random music for each gameplay
 
-void console_music()
+void console_music_gameplay()
 {
 
   switch(random_number(15))
@@ -249,15 +249,12 @@ void college_menu()
         cout<<endl<<"College options"<<endl<<endl;
         cout<<"1. Attend lecture"<<endl<<"2. Party"<<endl<<"3. Work on a project"<<endl<<"4. Go late to class"<<endl<<"5. Work a part time job"<<endl<<"6. Shop"<<endl<<endl;
 }
-
+int party_choice;
 int college_party_menu()
 {
-        int party_choice;
         set_text_color(14);
         cout<<endl<<"Party choices"<<endl<<endl;
         cout<<"1. Introduce yourself"<<endl<<"2. Dance"<<endl<<"3. Perform a party trick"<<endl<<endl;
-        cin>>party_choice;
-        return party_choice;
 }
 
 int study_land()
@@ -292,13 +289,13 @@ int study_land()
                 Sleep(2000);
                cout<<"Alliteration is a literary device where words are used in quick succession and begin with letters belonging to the same sound group."<<endl;
                 cout<<"Whether it is the consonant sound or a specific vowel group, the alliteration involves creating a repetition of similar sounds in the sentence."<<endl;
-                cout<<"Example: The Wicked Witch of the West went her own way. (The ‘W’ sound is repeated throughout the sentence."<<endl<<endl;
+                cout<<"Example: The Wicked Witch of the West went her own way. (The â€˜Wâ€™ sound is repeated throughout the sentence."<<endl<<endl;
                 Sleep(2000);
                cout<<"A hyperbole is a literary device wherein the author uses specific words and phrases that exaggerate and overemphasize the basic crux of the statement in order to produce a grander, more noticeable effect."<<endl;
                 cout<<"The purpose of hyperbole is to create a larger-than-life effect and overly stress a specific point."<<endl;
               cout<<"Example: I am so tired I can't even walk an inch or I am so hungry I can eat an elephant"<<endl<<endl;
                 Sleep(2000);
-                cout<<"An imagery is one of the strongest devices is imagery wherein the author uses words and phrases to create “mental images” for the reader. Imagery helps the reader to visualize more realistically the author’s writings."<<endl;
+                cout<<"An imagery is one of the strongest devices is imagery wherein the author uses words and phrases to create â€œmental imagesâ€ for the reader. Imagery helps the reader to visualize more realistically the authorâ€™s writings."<<endl;
                 cout<<"Example: The gushing brook stole its way down the lush green mountains, dotted with tiny flowers in a riot of colors and trees coming alive with gaily chirping birds."<<endl<<endl;
                 Sleep(2000);
                 cout<<"Onomatopoeia refer to words whose very sound is very close to the sound they are meant to depict."<<endl;
@@ -316,7 +313,7 @@ int study_land()
                 cout<<"The main source of light on Earth is the Sun."<<endl;
                 cout<<"Sunlight provides the energy that green plants use to create sugars mostly in the form of starches, which release energy into the living things that digest them."<<endl;
                 cout<<"Light behaves like a particle and wave."<<endl;
-                cout<<"This dual wave-like and particle-like nature of light is known as the wave–particle duality."<<endl<<endl;
+                cout<<"This dual wave-like and particle-like nature of light is known as the waveâ€“particle duality."<<endl<<endl;
             Sleep(2000);
               cout<<"You've studied Science"<<endl<<endl;
                 schoolscore= schoolscore + 700;
@@ -1513,22 +1510,25 @@ char stroll;
 void introduction()
 {
   cout<<"You met a "<<gender2<<" at the party... Introduce yourself."<<endl<<endl;
-  cout<<gender2<<": Hey, ";Sleep(700);cout<<"I'm ";Sleep(700);cout<<name2<<" and you are?"<<endl;Sleep(700);
+  cout<<gender2<<": Hey, ";Sleep(1500);cout<<"I'm ";Sleep(1500);cout<<name2;Sleep(1500);cout<<" and you are?"<<endl;Sleep(1500);
   cout<<name<<": ";
-  getline(cin, talk);
-  if (name==talk)
+  Sleep(500);
+  cin>>talk;
+  if( !talk.compare(name) )
   {
-    cout<<"Nice ";Sleep(700);cout<<"meeting you, ";Sleep(700);cout<<name<<"!"<<endl;Sleep(700);
+     cout<<name2<<": Oh, ";Sleep(1500);cout<<"really..."<<endl;Sleep(1500);
   }
   else
   {
-       cout<<"Oh, ";Sleep(700);cout<<"really..."<<endl;Sleep(700);
+       cout<<name2<<": Nice ";Sleep(1500);cout<<"meeting you, ";Sleep(1500);cout<<name<<"!"<<endl;Sleep(1500);
   }
-  cout<<name2<<": Is it "; Sleep(700);cout<<"your first ";Sleep(700);cout<<"year here?"<<endl;Sleep(700);
+  cout<<name2<<": Is it "; Sleep(1500);cout<<"your first ";Sleep(1500);cout<<"year here?"<<endl;Sleep(1500);
   cout<<name<<": ";
-  getline(cin, talk2);
-  cout<<name2<<": Getting kind "; Sleep(700);cout<<"loud in here  ";Sleep(700);cout<<"ain't it?"<<endl;Sleep(700);
-  cout<<name2<<": Wanna take "; Sleep(700);cout<<"a stroll ";Sleep(700);cout<<"outside? (y/n)"<<endl;Sleep(700);
+  Sleep(500);
+  cin>>talk2;
+  cin.get();
+  cout<<name2<<": Getting kind "; Sleep(1500);cout<<"loud in here, ";Sleep(1500);cout<<"ain't it?"<<endl;Sleep(1500);
+  cout<<name2<<": Wanna take "; Sleep(1500);cout<<"a stroll ";Sleep(1500);cout<<"outside? (y/n)"<<endl;Sleep(1500);
   cin>>stroll;
   if(stroll=='y'|| stroll=='Y')
   {
@@ -1554,11 +1554,10 @@ cout<<R"(
           (_){/{\/}{\{\/}/}{\{\)/}/}(_)
             {/{/{\{\/}{/{\{\{\(_)/}
              {/{\{\{\/}/}{\{\\}/}
-              {){/ {\/}{\/} \}\}
-              (_)
-                         )";
+              {){/ {\/}{\/} \}\}    )";
            set_text_color(4);
-           cout<<R"(\.-'.-/
+           cout<<R"(
+                   \.-'.-/
           __...--- |'-.-'| --...__
    _...--"   .-'   |'-.-'|  ' -.  ""--..__
  -"    ' .  . '    |.'-._| '  . .  '
@@ -1566,7 +1565,7 @@ cout<<R"(
           ' ..     |'-_.-|
   .  '  .       _.-|-._ -|-._  .  '  .
               .'   |'- .-|   '.
-  ..-'   ' .  '.   `-._.-´   .'  '  - .
+  ..-'   ' .  '.   `-._.-Â´   .'  '  - .
    .-' '        '-._______.-'     '  .
         .      ~,
            )"<<endl<<endl;
@@ -1576,7 +1575,7 @@ cout<<R"(
   }
  else
  {
-  cout<<name2<<": Bye... "; Sleep(700);cout<<"I got ";Sleep(700);cout<<"to go."<<endl;Sleep(700);
+  cout<<name2<<": Bye... "; Sleep(1500);cout<<"I got ";Sleep(1500);cout<<"to go."<<endl;Sleep(1500);
  }
 }
 void dance()
@@ -1756,7 +1755,13 @@ SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10);
   int main()
 {
   console_details();
-  console_music();
+  console_music_gameplay();
+  gender_location_name();
+  cout<<name;
+  gender2_location2_name2();
+  introduction();
+  gender2_location2_name2();
+  introduction();
   loadscreen();
     gender_location_name();
     set_text_color(14);
@@ -1798,21 +1803,36 @@ SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10);
     printf("");
   cout<<R"(
 
-_____/\\\\\\\\\\\\______________________________________________________________________________/\\\\\________/\\\__________________________/\\\\\________________
- ___/\\\//////////_____________________________________________________________________________/\\\///________\/\\\________________________/\\\///_________________
-  __/\\\_______________________________________________________________________________________/\\\____________\/\\\______________/\\\_____/\\\_____________________
-   _\/\\\____/\\\\\\\__/\\\\\\\\\_______/\\\\\__/\\\\\_______/\\\\\\\\____________/\\\\\_____/\\\\\\\\\_________\/\\\_____________\///___/\\\\\\\\\_______/\\\\\\\\__
-    _\/\\\___\/////\\\_\////////\\\____/\\\///\\\\\///\\\___/\\\/////\\\_________/\\\///\\\__\////\\\//__________\/\\\______________/\\\_\////\\\//______/\\\/////\\\_
-     _\/\\\_______\/\\\___/\\\\\\\\\\__\/\\\_\//\\\__\/\\\__/\\\\\\\\\\\_________/\\\__\//\\\____\/\\\____________\/\\\_____________\/\\\____\/\\\_______/\\\\\\\\\\\__
-      _\/\\\_______\/\\\__/\\\/////\\\__\/\\\__\/\\\__\/\\\_\//\\///////_________\//\\\__/\\\_____\/\\\____________\/\\\_____________\/\\\____\/\\\______\//\\///////___
-       _\//\\\\\\\\\\\\/__\//\\\\\\\\/\\_\/\\\__\/\\\__\/\\\__\//\\\\\\\\\\________\///\\\\\/______\/\\\____________\/\\\\\\\\\\\\\\\_\/\\\____\/\\\_______\//\\\\\\\\\\_
-        __\////////////_____\////////\//__\///___\///___\///____\//////////___________\/////________\///_____________\///////////////__\///_____\///_________\//////////__
+_____/\\\\\\\\\\\\______________________________________________________________________________/\\\\\________/\\\__________________________/\\\\\_____________
+ ___/\\\//////////_____________________________________________________________________________/\\\///________\/\\\________________________/\\\///______________
+  __/\\\_______________________________________________________________________________________/\\\____________\/\\\______________/\\\_____/\\\__________________
+   _\/\\\____/\\\\\\\__/\\\\\\\\\_______/\\\\\__/\\\\\_______/\\\\\\\\____________/\\\\\_____/\\\\\\\\\_________\/\\\_____________\///___/\\\\\\\\\____/\\\\\\\\__
+    _\/\\\___\/////\\\_\////////\\\____/\\\///\\\\\///\\\___/\\\/////\\\_________/\\\///\\\__\////\\\//__________\/\\\______________/\\\_\////\\\//___/\\\/////\\\_
+     _\/\\\_______\/\\\___/\\\\\\\\\\__\/\\\_\//\\\__\/\\\__/\\\\\\\\\\\_________/\\\__\//\\\____\/\\\____________\/\\\_____________\/\\\____\/\\\____/\\\\\\\\\\\__
+      _\/\\\_______\/\\\__/\\\/////\\\__\/\\\__\/\\\__\/\\\_\//\\///////_________\//\\\__/\\\_____\/\\\____________\/\\\_____________\/\\\____\/\\\___\//\\///////___
+       _\//\\\\\\\\\\\\/__\//\\\\\\\\/\\_\/\\\__\/\\\__\/\\\__\//\\\\\\\\\\________\///\\\\\/______\/\\\____________\/\\\\\\\\\\\\\\\_\/\\\____\/\\\____\//\\\\\\\\\\_
+        __\////////////_____\////////\//__\///___\///___\///____\//////////___________\/////________\///_____________\///////////////__\///_____\///______\//////////__
 
   )"<<endl<<endl;
+//FOR PRINT
+/*cout<<R"(
+
+_____/\\\\\\\\\\\\_______________________________________________________________/\\\\\_/\\\_____________________/\\\\\________
+ ___/\\\//////////______________________________________________________________/\\\///_\/\\\___________________/\\\///_________
+  __/\\\________________________________________________________________________/\\\_____\/\\\__________/\\\____/\\\_____________
+   _\/\\\____/\\\\\\\/\\\\\\\\\______/\\\\\__/\\\\\______/\\\\\\\\____/\\\\\__/\\\\\\\\\__\/\\\_________\///__/\\\\\\\\\/\\\\\\\\_
+    _\/\\\___\/////\\\////////\\\___/\\\///\\\\\///\\\__/\\\/////\\\_/\\\///\\\\////\\\//__\/\\\__________/\\\\////\\\///\\\/////\\_
+     _\/\\\_______\/\\\_/\\\\\\\\\\_\/\\\_\//\\\__\/\\\_/\\\\\\\\\\\_/\\\__\//\\\_\/\\\_____\/\\\_________\/\\\___\/\\\_/\\\\\\\\\\\_
+      _\/\\\_______\/\\\/\\\/////\\\_\/\\\__\/\\\__\/\\\\//\\///////_\//\\\__/\\\__\/\\\_____\/\\\_________\/\\\___\/\\\\//\\///////__
+       _\//\\\\\\\\\\\\/\//\\\\\\\\/\\\/\\\__\/\\\__\/\\\_\//\\\\\\\\\\\///\\\\\/___\/\\\_____\/\\\\\\\\\\\_\/\\\___\/\\\_\//\\\\\\\\\\
+        __\////////////___\////////\//_\///___\///___\///___\//////////___\/////_____\///______\///////////__\///____\///___\//////////_
+
+  )"<<endl<<endl;
+*/
   Sleep(1000);
   set_text_color(14);
   cout<<"Every choice you take from this moment onwards shapes the being of your character."<<endl;
-    cout<<"Smart moves combined with a bit of luck can take you up the ladder of success."<<endl;
+  cout<<"Smart moves combined with a bit of luck can take you up the ladder of success."<<endl;
 //add on touchy feely stuff
 
 cout<<endl<<endl<<endl;
@@ -1993,7 +2013,8 @@ for(int f=1; f<=7; f++)
                            break;
 
                 case 2:    college_party_menu();
-                           switch(college_party_menu())
+                           cin>>party_choice;
+                           switch(party_choice)
                            {
                             case 1: gender2_location2_name2();
                                     introduction();

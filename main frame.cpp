@@ -1,15 +1,21 @@
 //reconstructing to build final program
 //clean code
-#include<iostream>
 #include<string>
 #include<fstream> //save player details
 #include<stdlib.h>
+#include<conio.h>
+#include<iostream>
 #include<time.h>
 #define _WIN32_WINNT 0x0500
 #include<windows.h>
 #include<ctime>
 #include<MMSystem.h> //add winmm to linker
 #include<cwchar>
+#include<thread>
+#include<cstdlib>
+#include<ctime>
+#include<chrono>
+
 
 using namespace std;
 
@@ -66,21 +72,21 @@ void console_music_gameplay()
           {
        case 1: PlaySound(TEXT("Name.wav"), NULL, SND_ASYNC | SND_LOOP);
                                     break;
-       case 2: PlaySound(TEXT("americanrust.wav"), NULL, SND_ASYNC | SND_LOOP);
+       case 2: PlaySound(TEXT("Name.wav"), NULL, SND_ASYNC | SND_LOOP);
                                     break;
-       case 3: PlaySound(TEXT("fountain.wav"), NULL, SND_ASYNC | SND_LOOP);
+       case 3: PlaySound(TEXT("Name.wav"), NULL, SND_ASYNC | SND_LOOP);
                                     break;
-       case 4: PlaySound(TEXT("gallery.wav"), NULL, SND_ASYNC | SND_LOOP);
+       case 4: PlaySound(TEXT("Name.wav"), NULL, SND_ASYNC | SND_LOOP);
                                     break;
-       case 5: PlaySound(TEXT("guitar.wav"), NULL, SND_ASYNC | SND_LOOP);
+       case 5: PlaySound(TEXT("Name.wav"), NULL, SND_ASYNC | SND_LOOP);
                                     break;
-       case 6: PlaySound(TEXT("junkyard.wav"), NULL, SND_ASYNC | SND_LOOP);
+       case 6: PlaySound(TEXT("Name.wav"), NULL, SND_ASYNC | SND_LOOP);
                                     break;
-       case 7: PlaySound(TEXT("sunset.wav"), NULL, SND_ASYNC | SND_LOOP);
+       case 7: PlaySound(TEXT("Name.wav"), NULL, SND_ASYNC | SND_LOOP);
                                     break;
-       case 8: PlaySound(TEXT("chloesroom.wav"), NULL, SND_ASYNC | SND_LOOP);
+       case 8: PlaySound(TEXT("Name.wav"), NULL, SND_ASYNC | SND_LOOP);
                                     break;
-       case 9: PlaySound(TEXT("lifeisstrange.wav"), NULL, SND_ASYNC | SND_LOOP);
+       case 9: PlaySound(TEXT("Name.wav"), NULL, SND_ASYNC | SND_LOOP);
                                     break;
        case 10: PlaySound(TEXT("undertale.wav"), NULL, SND_ASYNC | SND_LOOP);
                                     break;
@@ -1524,9 +1530,7 @@ void introduction()
   }
   cout<<name2<<": Is it "; Sleep(1500);cout<<"your first ";Sleep(1500);cout<<"year here?"<<endl;Sleep(1500);
   cout<<name<<": ";
-  Sleep(500);
   cin>>talk2;
-  cin.get();
   cout<<name2<<": Getting kind "; Sleep(1500);cout<<"loud in here, ";Sleep(1500);cout<<"ain't it?"<<endl;Sleep(1500);
   cout<<name2<<": Wanna take "; Sleep(1500);cout<<"a stroll ";Sleep(1500);cout<<"outside? (y/n)"<<endl;Sleep(1500);
   cin>>stroll;
@@ -1703,8 +1707,198 @@ void dance()
     cout<<"You had a great time dancing"<<endl<<endl;
     lifescore= lifescore+ 600;
 }
+
+int death_console()
+{
+    SetConsoleTitle("Death of a Life");
+    HWND ConsoleWindow;
+	ConsoleWindow=GetForegroundWindow();
+
+	//Getting the desktop hadle and rectangule
+	HWND   hwndScreen;
+	RECT   rectScreen;
+	hwndScreen=GetDesktopWindow ();
+	GetWindowRect(hwndScreen,&rectScreen);
+
+	//Set windows size(see the width problem)
+	SetWindowPos (ConsoleWindow,NULL,0,0,1000,500, SWP_SHOWWINDOW);
+
+	// Get the current width and height of the console
+	RECT rConsole;
+	GetWindowRect (ConsoleWindow,&rConsole);
+	int Width = rConsole.left = rConsole.right;
+	int Height = rConsole.bottom - rConsole.top;
+
+	//caculate the window console to center of the screen
+	int ConsolePosX;
+	int ConsolePosY;
+	ConsolePosX = ((rectScreen.right-rectScreen.left)/2-Width/2 );
+	ConsolePosY = ((rectScreen.bottom-rectScreen.top)/2- Height/2 );
+	SetWindowPos(ConsoleWindow,NULL,ConsolePosX,ConsolePosY, Width, Height, SWP_SHOWWINDOW || SWP_NOSIZE);
+
+      time_t now;
+      time(&now);
+      srand(now);
+      for(int a=0;a<40;a++)
+      {
+          Sleep(100);
+          SMALL_RECT WinRect = {0, 0, random_number(200), random_number(100)};
+          SMALL_RECT* WinSize = &WinRect;
+          SetConsoleWindowInfo(GetStdHandle(STD_OUTPUT_HANDLE), true, WinSize);
+      }
+
+}
+void death_details()
+{
+  SetConsoleTitle("Death of a Life");
+  system("mode con COLS=700");
+      ShowWindow(GetConsoleWindow(),SW_MAXIMIZE);
+      HWND hWnd;
+        RECT WinRect;
+        hWnd = FindWindow(NULL, "Death of a Life");
+
+        GetWindowRect(hWnd, &WinRect);
+
+        MoveWindow(hWnd, 0, 0, WinRect.right - WinRect.left, WinRect.bottom - WinRect.top, TRUE);
+        char ch;
+      //system("C:\\WINDOWS\\System32\\shutdown -s");
+
+
+}
+int Modulus(int iN, int iMod)
+{
+	int iQ = (iN/iMod);
+	return iN - (iQ*iMod);
+}
+
+char GetChar(int iGenerator, char cBase, int iRange)
+{
+	return (cBase + Modulus(iGenerator, iRange));
+}
+
+int matrix_effect()
+{
+
+    HANDLE  hConsole;
+	hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(hConsole, 2);
+
+	char caRow[80];
+	int j = 7;
+	int k = 2;
+	int l = 5;
+	int m = 1;
+	for (int f=8;f<200;f++){
+		// Output a random row of characters
+		for ( int i = 0; i <80; ++i )
+		{
+			if (caRow[i] != ' ') {
+				caRow[i] = GetChar(j + i*i, 33, 30);
+				if (((i*i + k) % 71) == 0) {
+					SetConsoleTextAttribute(hConsole,  7);
+				} else {
+					SetConsoleTextAttribute(hConsole,  2);
+				}
+			}
+			std::cout << caRow[i];
+			SetConsoleTextAttribute(hConsole,  2);
+		}
+		j = (j + 31);
+		k = (k + 17);
+		l = (l + 47);
+		m = (m + 67);
+		caRow[Modulus(j, 80)] = '-';
+		caRow[Modulus(k, 80)] = ' ';
+		caRow[Modulus(l, 80)] = '-';
+		caRow[Modulus(m, 80)] = ' ';}
+		// Delay
+		Sleep(10);
+}
+const int width = 170;
+
+// Defines the number of flips in Boolean Array 'switches'
+const int flipsPerLine =10;
+
+
+void matrix_effect_2()
+{
+    int i=0, x=0;
+
+    // srand initialized with time function
+    // to get distinct rand values at runtime
+    srand(time(NULL));
+
+    // Used to decide whether to print
+    // the character in that particular iteration
+    bool switches[width] = {0};
+
+    // Set of characters to print from
+    const string ch = "1234567890qwertyuiopasdfghjkl"
+                      "zxcvbnm,./';[]!@#$%^&*()-=_+";
+    const int l = ch.size();
+
+   set_text_color(10);
+
+    // Indefinite Loop
+   for (int f=8;f<100;f++)
+    {
+        // Loop over the width
+        // Increment by 2 gives better effect
+        for (i=0;i<width;i+=2)
+        {
+            // Print character if switches[i] is 1
+            // Else print a blank character
+            if (switches[i])
+                cout << ch[rand() % l] << " ";
+            else
+                cout<<"  ";
+        }
+
+        // Flip the defined amount of Boolean values
+        // after each line
+        for (i=0; i!=flipsPerLine; ++i)
+        {
+            x = rand() % width;
+            switches[x] = !switches[x];
+        }
+
+         // New Line
+        cout << endl;
+
+        Sleep(100);
+    }
+}
+void gotoxy(int x, int y)
+{
+
+ char essq[100];
+ char xstr[100];
+ char ystr[100];
+ sprintf(xstr, "%d", x);
+ sprintf(ystr, "%d", y);
+ essq[0] = '\0';
+
+ strcat(essq, "\033[");
+ strcat(essq, ystr);
+ strcat(essq, "d");
+ strcat(essq, "\033[");
+
+ strcat(essq, xstr);
+
+ strcat(essq, "G");
+ printf("%s", essq);
+
+}
 int death()
 {
+death_console();
+death_details();
+matrix_effect();
+gotoxy(1,1);
+matrix_effect_2();
+system("cls");
+death_console();
+death_details();
 SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10);
     cout<<R"(
                                            .""--..__
@@ -1746,26 +1940,87 @@ SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10);
 
 
          cout<<"God has signed you a cheque of a life-score of "<<lifescore<<". Maybe some of it shall return back to you as karma";
-         return 0;
+         char g;
+         cin>>g;
+}
+HANDLE hStdout;
+
+int ScrollByAbsoluteCoord(int iRows)
+{
+    CONSOLE_SCREEN_BUFFER_INFO csbiInfo;
+    SMALL_RECT srctWindow;
+    if (! GetConsoleScreenBufferInfo(hStdout, &csbiInfo))
+    {
+        printf("GetConsoleScreenBufferInfo (%d)\n", GetLastError());
+        return 0;
+    }
+
+    srctWindow = csbiInfo.srWindow;
+    if ( srctWindow.Top >= iRows )
+    {
+        srctWindow.Top -= (SHORT)iRows;
+        srctWindow.Bottom -= (SHORT)iRows;
+        if (! SetConsoleWindowInfo(
+                   hStdout,
+                   TRUE,
+                   &srctWindow))
+        {
+            printf("SetConsoleWindowInfo (%d)\n", GetLastError());
+            return 0;
+        }
+        return iRows;
+    }
+    else
+    {
+        printf("\nCannot scroll; the window is too close to the top.\n");
+        return 0;
+    }
 }
 
+int ScrollByRelativeCoord(int iRows)
+{
+    CONSOLE_SCREEN_BUFFER_INFO csbiInfo;
+    SMALL_RECT srctWindow;
+
+    if (! GetConsoleScreenBufferInfo(hStdout, &csbiInfo))
+    {
+        printf("GetConsoleScreenBufferInfo (%d)\n", GetLastError());
+        return 0;
+    }
 
 
 
+    if (csbiInfo.srWindow.Top >= iRows)
+    {
+        srctWindow.Top =- (SHORT)iRows;
+        srctWindow.Bottom =- (SHORT)iRows;
+        srctWindow.Left = 0;
+        srctWindow.Right = 0;
+        if (! SetConsoleWindowInfo(
+                   hStdout,
+                   FALSE,
+                   &srctWindow))
+        {
+            printf("SetConsoleWindowInfo (%d)\n", GetLastError());
+            return 0;
+        }
+        return iRows;
+    }
+    else
+    {
+        printf("\nCannot scroll; the window is too close to the top.\n");
+        return 0;
+    }
+}
   int main()
 {
+  death();
   console_details();
   console_music_gameplay();
-  gender_location_name();
-  cout<<name;
-  gender2_location2_name2();
-  introduction();
-  gender2_location2_name2();
-  introduction();
   loadscreen();
-    gender_location_name();
-    set_text_color(14);
- cout<<"You are "<<name <<" of "<<location<<". You are currently 14 years old in the year 2001."<<endl;
+  gender_location_name();
+  set_text_color(14);
+  cout<<"You are "<<name <<" of "<<location<<". You are currently 14 years old in the year 2001."<<endl;
   cout<<endl;
   Sleep(2000);
   //add nice font
@@ -1801,7 +2056,8 @@ SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10);
   Sleep(1500);
   set_text_color(10);
     printf("");
-  cout<<R"(
+
+cout<<R"(
 
 _____/\\\\\\\\\\\\______________________________________________________________________________/\\\\\________/\\\__________________________/\\\\\_____________
  ___/\\\//////////_____________________________________________________________________________/\\\///________\/\\\________________________/\\\///______________
@@ -1833,7 +2089,6 @@ _____/\\\\\\\\\\\\______________________________________________________________
   set_text_color(14);
   cout<<"Every choice you take from this moment onwards shapes the being of your character."<<endl;
   cout<<"Smart moves combined with a bit of luck can take you up the ladder of success."<<endl;
-//add on touchy feely stuff
 
 cout<<endl<<endl<<endl;
 
@@ -1884,7 +2139,6 @@ cout<<"School is where your character develops. From the company you keep to the
 //edit
 Sleep(2500);
 school_menu();
-
 cout<<"You have 4 choices to take before you leave school"<<endl;
 int choice;
 
@@ -1997,7 +2251,6 @@ cout<<"Freedom comes with a cost."<<endl<<"In this chapter of life you have to t
 //edit
 
 college_menu();
-
 cout<<"You have 7 choices to take before you leave college"<<endl;
 int choice_2;
 
@@ -2051,6 +2304,326 @@ for(int f=1; f<=7; f++)
                 case 6:    //collegework();
                            Sleep(2000);
                            college_menu();
+                           break;
+
+
+                default: cout<<"You should've chosen a valid option.";
+
+
+        }
+
+
+
+}
+
+
+cout<<endl<<endl;
+Sleep(3000);
+
+cout<<"C";
+Sleep(200);
+cout<<"h";
+Sleep(200);
+cout<<"a";
+Sleep(200);
+cout<<"p";
+Sleep(200);
+cout<<"t";
+Sleep(200);
+cout<<"e";
+Sleep(200);
+cout<<"r";
+Sleep(200);
+cout<<" ";
+Sleep(200);
+cout<<"3";
+Sleep(200);
+cout<<":";
+Sleep(200);
+cout<<" ";
+Sleep(200);
+cout<<"W";
+Sleep(200);
+cout<<"o";
+Sleep(200);
+cout<<"r";
+Sleep(200);
+cout<<"k";
+Sleep(200);
+
+cout<<endl<<endl;
+Sleep(1500);
+cout<<"Don't frustrate and don't be frustrated."<<endl<<"In this chapter of life you have to work through your hardships."<<endl<<endl<<endl;
+
+//work_menu();
+cout<<"You have 4 choices to take before you settle down"<<endl;
+int choice_3;
+
+for(int f=1; f<=4; f++)
+{
+        cout<<"Enter choice number "<<f<<endl<<endl;
+        cin>>choice_2;
+        switch(choice_2)
+        {
+                case 1:    //work();
+                           Sleep(2000);
+                           //work_menu();
+                           break;
+
+                case 2:    //work_party_menu();
+                           cin>>party_choice;
+                           switch(party_choice)
+                           {
+                            case 1: gender2_location2_name2();
+                                    introduction();
+                                    Sleep(2000);
+                                    break;
+                            case 2: dance();
+                                    Sleep(2000);
+                                    break;
+                            case 3: //party trick
+                                    Sleep(2000);
+                                    break;
+                            default: cout<<"You should have entered a valid option."<<endl<<endl;
+
+                           }
+                           Sleep(2000);
+                           //work_menu();
+                           break;
+
+                case 3:    //workproject();
+                           Sleep(2000);
+                           //work_menu();
+                           break;
+
+                case 4:    //latework();
+                           Sleep(2000);
+                           //work_menu();
+                           break;
+
+                case 5:    //shop();
+                           Sleep(2000);
+                           //work_menu();
+                           break;
+
+
+
+
+                default: cout<<"You should've chosen a valid option.";
+
+
+        }
+
+
+
+}
+
+cout<<endl<<endl;
+Sleep(3000);
+
+cout<<"C";
+Sleep(200);
+cout<<"h";
+Sleep(200);
+cout<<"a";
+Sleep(200);
+cout<<"p";
+Sleep(200);
+cout<<"t";
+Sleep(200);
+cout<<"e";
+Sleep(200);
+cout<<"r";
+Sleep(200);
+cout<<" ";
+Sleep(200);
+cout<<"4";
+Sleep(200);
+cout<<":";
+Sleep(200);
+cout<<" ";
+Sleep(200);
+cout<<"L";
+Sleep(200);
+cout<<"o";
+Sleep(200);
+cout<<"v";
+Sleep(200);
+cout<<"e";
+Sleep(200);
+
+cout<<endl<<endl;
+Sleep(1500);
+cout<<"There is always some madness in love."<<endl<<"In this chapter of life make sure you aren't caught up in the madness of your heart and still think from you mind."<<endl<<endl<<endl;
+//edit
+
+//love_menu();
+
+cout<<"You have 3 choices to take before you take your true love home."<<endl;
+int choice_4;
+
+for(int f=1; f<=7; f++)
+{
+        cout<<"Enter choice number "<<f<<endl<<endl;
+        cin>>choice_2;
+        switch(choice_2)
+        {
+                case 1:    //date();
+                           Sleep(2000);
+                           //love_menu();
+                           break;
+
+                case 2:    //date_party_menu();
+                           cin>>party_choice;
+                           switch(party_choice)
+                           {
+                            case 1: gender2_location2_name2();
+                                    introduction();
+                                    Sleep(2000);
+                                    break;
+                            case 2: dance();
+                                    Sleep(2000);
+                                    break;
+                            case 3: //party trick
+                                    Sleep(2000);
+                                    break;
+                            default: cout<<"You should have entered a valid option."<<endl<<endl;
+
+                           }
+                           Sleep(2000);
+                           //love_menu();
+                           break;
+
+                case 3:    //collgeproject();
+                           Sleep(2000);
+                           //love_menu();
+                           break;
+
+                case 4:    //lateclass();
+                           Sleep(2000);
+                           //love_menu();
+                           break;
+
+                case 5:    //shop();
+                           Sleep(2000);
+                           //love_menu();
+                           break;
+
+                case 6:    //collegework();
+                           Sleep(2000);
+                           //love_menu();
+                           break;
+
+
+                default: cout<<"You should've chosen a valid option.";
+
+
+        }
+
+
+
+}
+
+
+cout<<endl<<endl;
+Sleep(3000);
+
+cout<<"C";
+Sleep(200);
+cout<<"h";
+Sleep(200);
+cout<<"a";
+Sleep(200);
+cout<<"p";
+Sleep(200);
+cout<<"t";
+Sleep(200);
+cout<<"e";
+Sleep(200);
+cout<<"r";
+Sleep(200);
+cout<<" ";
+Sleep(200);
+cout<<"5";
+Sleep(200);
+cout<<":";
+Sleep(200);
+cout<<" ";
+Sleep(200);
+cout<<"F";
+Sleep(200);
+cout<<"a";
+Sleep(200);
+cout<<"m";
+Sleep(200);
+cout<<"i";
+Sleep(200);
+cout<<"l";
+Sleep(200);
+cout<<"y";
+Sleep(200);
+
+
+cout<<endl<<endl;
+Sleep(1500);
+cout<<"Family means putting your arms around each other and being there."<<endl<<"In this chapter of life you have to be there for the one's that love you most."<<endl<<endl<<endl;
+//edit
+
+//family_menu();
+
+cout<<"You have 4 choices to take with your family."<<endl;
+int choice_5;
+
+for(int f=1; f<=4; f++)
+{
+        cout<<"Enter choice number "<<f<<endl<<endl;
+        cin>>choice_2;
+        switch(choice_2)
+        {
+                case 1:    //lectureattend();
+                           Sleep(2000);
+                           //family_menu();
+                           break;
+
+                case 2:    //family_party_menu();
+                           cin>>party_choice;
+                           switch(party_choice)
+                           {
+                            case 1: gender2_location2_name2();
+                                    introduction();
+                                    Sleep(2000);
+                                    break;
+                            case 2: dance();
+                                    Sleep(2000);
+                                    break;
+                            case 3: //party trick
+                                    Sleep(2000);
+                                    break;
+                            default: cout<<"You should have entered a valid option."<<endl<<endl;
+
+                           }
+                           Sleep(2000);
+                           //family_menu();
+                           break;
+
+                case 3:    //collgeproject();
+                           Sleep(2000);
+                           //family_menu();
+                           break;
+
+                case 4:    //lateclass();
+                           Sleep(2000);
+                           //family_menu();
+                           break;
+
+                case 5:    //shop();
+                           Sleep(2000);
+                           //family_menu();
+                           break;
+
+                case 6:    //collegework();
+                           Sleep(2000);
+                           //family_menu();
                            break;
 
 

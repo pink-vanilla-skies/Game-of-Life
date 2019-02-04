@@ -33,6 +33,7 @@ int countparty=0;
 string gender;
 string location;
 int locationscore;
+string job;
 
 //universal random function which game works on
 int random_number(int a)
@@ -1614,6 +1615,7 @@ void dance()
                                 ,/ ,^'
                                f__
                                )";
+  Sleep(600);
     break;
     case 2: cout<<R"(
    _                             .-.
@@ -1633,6 +1635,7 @@ void dance()
              /  ___)                    (  ( (
              '.'                         ) ;) ;
                                         (_/(_/)";
+    Sleep(600);
     break;
     case 3: cout<<R"(
      .,,-~&,               ,~"~.
@@ -1661,6 +1664,7 @@ void dance()
        Y\__Y`--'    `-'~x__J    j'  >
                               ,/ ,^'
                              f__J   )";
+            Sleep(600);
             break;
     default: cout<<R"(
                       |
@@ -1708,33 +1712,197 @@ void dance()
     lifescore= lifescore+ 600;
 }
 
+
+void college_project()
+{
+    switch(random_number(5))
+    {
+    case 1: 
+    cout<<endl<<endl<<"You analyze the markets for a project...";
+    cout<<R"(
+       |
+       |
+       |
+       |
+       |
+       |
+       |                  *           *
+       |              ***  *        *
+       |             *       *     *
+       |            *          ***
+       |           *
+       |          *
+       |         *
+       |    *   *
+       |   *  *
+       |  *
+       | * 
+       |*
+       |
+       |
+       +---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---)";
+       job=("Economist");
+    Sleep(600);
+    break;
+    case 2: 
+    cout<<endl<<endl<<"You are researching on polymers...";
+    cout<<R"(
+
+                               __              []
+                               ||              []
+                               ||              []
+                               ||              []
+                            __ ||              []
+                            || ||              []
+                          .-||-||-.            []  /\
+                         _\_______/_===========[]=(-o)
+                          )\_____/(            []  \/
+                         /     ||  \           []
+                        /      ||   \          []
+                       /       ||    \         []
+                      /~~~~~~~~~~~~~~~\        []
+                     /         ::      \       []
+                    (          ::       )      []
+                     `-----------------'       []
+                             )                 []
+                           (   )               []
+                             )( . (            []
+                          .) @@)   )           []
+                       ` ) @@(@@)@             []
+                         (@@(@@)@              []
+                          @(@.@)@@             []
+                        ` (@{__}@)`            []
+                            :__;               []
+        ___                  {}+               []
+       ( = )             .---'`---.            []
+        | |_            /          \   ________[]____
+    ____| |_|==========(____________)_/______________\)";
+    Sleep(600);
+    job=("Mad Scientist");
+    break;
+    case 3: 
+    cout<<endl<<endl<<"You learnt to become an ethical hacker...";
+    cout<<R"(
+            ______________________________________________________
+           /                                                      \
+           |    _____________________________________________     |
+           |   |                                             |    |
+           |   |  C:\> _                                     |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |_____________________________________________|    |
+           |                                                      |
+            \_____________________________________________________/
+                   \_______________________________________/
+                _______________________________________________
+             _-'    .-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.  --- `-_
+          _-'.-.-. .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.--.  .-.-.`-_
+       _-'.-.-.-. .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-`__`. .-.-.-.`-_
+    _-'.-.-.-.-. .-----.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-----. .-.-.-.-.`-_
+ _-'.-.-.-.-.-. .---.-. .-----------------------------. .-.---. .---.-.-.-.`-_
+:-----------------------------------------------------------------------------:
+`---._.-----------------------------------------------------------------._.---'
+)";
+Sleep(600);
+job=("Software Engineer");
+            break;
+case 4: 
+    cout<<endl<<endl<<"No one really understands the artwork you make...";
+    cout<<R"(
+           ._____. ._____. ._____. ._____. ._____. ._____. ._____. ._____.
+| ._. | | ._. | | ._. | | ._. | | ._. | | ._. | | ._. | | ._. |
+| !_| |_|_|_! | | !_| |_|_|_! | | !_| |_|_|_! | | !_| |_|_|_! |
+!___| |_______! !___| |_______! !___| |_______! !___| |_______!
+.___|_|_| |_________|_|_| |___. .___|_|_| |_________|_|_| |___.
+| ._____| |_____________| |_. | | ._____| |_____________| |_. |
+| !_! | | |         | | ! !_! | | !_! | | |         | | ! !_! |
+!_____! | |         | | !_____! !_____! | |         | | !_____!
+._____. | |     .___| |___.     ._______|_|___.     | | ._____.
+| ._. | | |     | ._| |_. |     | ._________. |     | | | ._. |
+| !_| |_|_|_____| |_|_|_| |_____|_|_____| |_|_|_____| |_|_|_! |
+!___| |_________| |_____| |_____________| |_________| |_______!
+.___|_|_| |___. | !_| |_|_|_____| |_____|_|_! | .___|_|_| |___.
+| ._____| |_. | !___| |_________| |___________! | ._____| |_. |
+| !_! | | !_! | .___|_|_| |___. | | .___| |___. | !_! | | !_! |
+!_____! !_____! | ._____| |_. | | | | ._| |_. | !_____! !_____!
+._____. ._____. | !_| |_! | | | | !_| |_|_|_! | ._____. ._____.
+| ._. | | ._. | !___| |___! | | !___| |_______| | ._. | | ._. |
+| !_| |_|_|_! | .___|_|_____| |_____|_|_| |___. | !_| |_|_|_! |
+!___| |_______! | ._________| |_________| |_. | !___| |_______!
+.___|_|_| |_____|_|_| |_____|_|_____| |_|_|_| |_____|_|_| |___.
+| ._____| |_________| |_____________| |_____| |_________| |_. |
+| !_! | | |     | !_|_|_____! |     | !_| |_! |     | | ! !_! |
+!_____! | |     !_____________!     !___| |___!     | | !_____!
+._____. | |         | | ._____. ._____. | |         | | ._____.
+| ._. | | |         | | | ._. | | ._. | | |         | | | ._. |
+| !_| |_|_|_________| |_|_|_! | | !_| |_|_|_________| |_|_|_! |
+!___| |_____________| |_______! !___| |_____________| |_______!
+.___|_|_| |___. .___|_|_| |___. .___|_|_| |___. .___|_|_| |___.
+| ._____| |_. | | ._____| |_. | | ._____| |_. | | ._____| |_. | 
+| !_! | | !_! | | !_! | | !_! | | !_! | | !_! | | !_! | | !_! |
+!_____! !_____! !_____! !_____! !_____! !_____! !_____! !_____!
+)";
+Sleep(600);
+job=("Artist");
+            break;
+    default: cout<<endl<<endl<<"You build a robot";
+    cout<<R"(
+
+
+|@|@|@|@|           |@|@|@|@|
+|@|@|@|@|   _____   |@|@|@|@|
+|@|@|@|@| /\_T_T_/\ |@|@|@|@|
+|@|@|@|@||/\ T T /\||@|@|@|@|
+ ~/T~~T~||~\/~T~\/~||~T~~T\~
+  \|__|_| \(-(O)-)/ |_|__|/
+  _| _|    \\8_8//    |_ |_
+|(@)]   /~~[_____]~~\   [(@)|
+  ~    (  |       |  )    ~
+      [~` ]       [ '~]
+      |~~|         |~~|
+      |  |         |  |
+     _<\/>_       _<\/>_
+    /_====_\     /_====_\)";
+       }
+    Sleep(600);
+job=("Mechanical Engineer");    
+}
 int death_console()
 {
     SetConsoleTitle("Death of a Life");
     HWND ConsoleWindow;
-	ConsoleWindow=GetForegroundWindow();
+    ConsoleWindow=GetForegroundWindow();
 
-	//Getting the desktop hadle and rectangule
-	HWND   hwndScreen;
-	RECT   rectScreen;
-	hwndScreen=GetDesktopWindow ();
-	GetWindowRect(hwndScreen,&rectScreen);
+    //Getting the desktop hadle and rectangule
+    HWND   hwndScreen;
+    RECT   rectScreen;
+    hwndScreen=GetDesktopWindow ();
+    GetWindowRect(hwndScreen,&rectScreen);
 
-	//Set windows size(see the width problem)
-	SetWindowPos (ConsoleWindow,NULL,0,0,1000,500, SWP_SHOWWINDOW);
+    //Set windows size(see the width problem)
+    SetWindowPos (ConsoleWindow,NULL,0,0,1000,500, SWP_SHOWWINDOW);
 
-	// Get the current width and height of the console
-	RECT rConsole;
-	GetWindowRect (ConsoleWindow,&rConsole);
-	int Width = rConsole.left = rConsole.right;
-	int Height = rConsole.bottom - rConsole.top;
+    // Get the current width and height of the console
+    RECT rConsole;
+    GetWindowRect (ConsoleWindow,&rConsole);
+    int Width = rConsole.left = rConsole.right;
+    int Height = rConsole.bottom - rConsole.top;
 
-	//caculate the window console to center of the screen
-	int ConsolePosX;
-	int ConsolePosY;
-	ConsolePosX = ((rectScreen.right-rectScreen.left)/2-Width/2 );
-	ConsolePosY = ((rectScreen.bottom-rectScreen.top)/2- Height/2 );
-	SetWindowPos(ConsoleWindow,NULL,ConsolePosX,ConsolePosY, Width, Height, SWP_SHOWWINDOW || SWP_NOSIZE);
+    //caculate the window console to center of the screen
+    int ConsolePosX;
+    int ConsolePosY;
+    ConsolePosX = ((rectScreen.right-rectScreen.left)/2-Width/2 );
+    ConsolePosY = ((rectScreen.bottom-rectScreen.top)/2- Height/2 );
+    SetWindowPos(ConsoleWindow,NULL,ConsolePosX,ConsolePosY, Width, Height, SWP_SHOWWINDOW || SWP_NOSIZE);
 
       time_t now;
       time(&now);
@@ -1767,52 +1935,52 @@ void death_details()
 }
 int Modulus(int iN, int iMod)
 {
-	int iQ = (iN/iMod);
-	return iN - (iQ*iMod);
+    int iQ = (iN/iMod);
+    return iN - (iQ*iMod);
 }
 
 char GetChar(int iGenerator, char cBase, int iRange)
 {
-	return (cBase + Modulus(iGenerator, iRange));
+    return (cBase + Modulus(iGenerator, iRange));
 }
 
 int matrix_effect()
 {
 
     HANDLE  hConsole;
-	hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-	SetConsoleTextAttribute(hConsole, 2);
+    hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(hConsole, 2);
 
-	char caRow[80];
-	int j = 7;
-	int k = 2;
-	int l = 5;
-	int m = 1;
-	for (int f=8;f<200;f++){
-		// Output a random row of characters
-		for ( int i = 0; i <80; ++i )
-		{
-			if (caRow[i] != ' ') {
-				caRow[i] = GetChar(j + i*i, 33, 30);
-				if (((i*i + k) % 71) == 0) {
-					SetConsoleTextAttribute(hConsole,  7);
-				} else {
-					SetConsoleTextAttribute(hConsole,  2);
-				}
-			}
-			std::cout << caRow[i];
-			SetConsoleTextAttribute(hConsole,  2);
-		}
-		j = (j + 31);
-		k = (k + 17);
-		l = (l + 47);
-		m = (m + 67);
-		caRow[Modulus(j, 80)] = '-';
-		caRow[Modulus(k, 80)] = ' ';
-		caRow[Modulus(l, 80)] = '-';
-		caRow[Modulus(m, 80)] = ' ';}
-		// Delay
-		Sleep(10);
+    char caRow[80];
+    int j = 7;
+    int k = 2;
+    int l = 5;
+    int m = 1;
+    for (int f=8;f<200;f++){
+        // Output a random row of characters
+        for ( int i = 0; i <80; ++i )
+        {
+            if (caRow[i] != ' ') {
+                caRow[i] = GetChar(j + i*i, 33, 30);
+                if (((i*i + k) % 71) == 0) {
+                    SetConsoleTextAttribute(hConsole,  7);
+                } else {
+                    SetConsoleTextAttribute(hConsole,  2);
+                }
+            }
+            std::cout << caRow[i];
+            SetConsoleTextAttribute(hConsole,  2);
+        }
+        j = (j + 31);
+        k = (k + 17);
+        l = (l + 47);
+        m = (m + 67);
+        caRow[Modulus(j, 80)] = '-';
+        caRow[Modulus(k, 80)] = ' ';
+        caRow[Modulus(l, 80)] = '-';
+        caRow[Modulus(m, 80)] = ' ';}
+        // Delay
+        Sleep(10);
 }
 const int width = 170;
 
@@ -2286,7 +2454,7 @@ for(int f=1; f<=7; f++)
                            college_menu();
                            break;
 
-                case 3:    //collgeproject();
+                case 3:    //collge_project();
                            Sleep(2000);
                            college_menu();
                            break;
